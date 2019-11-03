@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require './pet_friendly'
+
+
+
+PetFriendly::CLI.new.call
