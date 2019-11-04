@@ -2,24 +2,26 @@ require 'pry'
 
 class PetFriendly::Scraper
   
-  attr_accessor :category, :destination
-  
   @@all =[]
   
   def initialize
-    @name = name
-    @category = category
-    @destination = destination
     @@all << self
   end 
   
   def get_page
-  
-    doc = Nokogiri::HTML(open("https://bringfido.com"))
+    page = Nokogiri::HTML(open("https://bringfido.com"))
+    page
     
     binding.pry 
-    
   end 
+  
+  def get_category
+    page = self.get_page.css(".item")
+    page.each do |category|
+      category_name = category.css(".label").text
+      new_category = Category.new(category_name)
+    end
+  end
   
   
 end

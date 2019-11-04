@@ -1,9 +1,9 @@
 
 
-class Caytegory
+class PetFriendly::Category
   
   attr_reader :name
-  attr_accessible :categories, :location
+  attr_accessor :categories, :location
   
   @@all =[]
   
