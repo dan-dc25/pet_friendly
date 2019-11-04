@@ -1,6 +1,6 @@
 require 'pry'
 
-class PetFriendly::Scraper
+class Scraper
   
   @@all =[]
   

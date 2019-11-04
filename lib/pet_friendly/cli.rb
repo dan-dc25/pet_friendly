@@ -1,10 +1,12 @@
+require 'pry'
+require './lib/pet_friendly'
 
-
-class PetFriendly::Cli
+class Cli
   
   def call
     welcome
     display_categories
+    user_select
   end
     
   def welcome
@@ -18,17 +20,18 @@ class PetFriendly::Cli
     puts " "
     puts "Here are the availables categories: "
     puts " "
-    PetFriendly::Category.all.each_with_index do |category, index|
+    Category.all.each_with_index do |category, index|
       puts " #{index+1}. #{category.name}"
+      
+      binding.pry
     end
   end
   
   def user_select
     puts " "
     puts "Please select a category "
-    puts " "
-    puts "For example, if you want 'Hotels', type '1' "
-    input = gets.strip_to_i
+    display_categories
+    input = gets.strip
   end
     
 end

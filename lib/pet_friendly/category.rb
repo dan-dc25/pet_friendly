@@ -1,6 +1,7 @@
+require 'pry'
+require './lib/pet_friendly'
 
-
-class PetFriendly::Category
+class Category
   
   attr_reader :name
   attr_accessor :categories, :location

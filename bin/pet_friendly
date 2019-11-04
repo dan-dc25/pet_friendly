@@ -4,4 +4,4 @@ require './lib/pet_friendly'
 
 
 
-PetFriendly::Cli.new.call
+Cli.new.call

@@ -4,5 +4,5 @@ source "https://rubygems.org"
 
 gemspec
 
-#require "pry"
-#Pry.start
+require "pry"
+Pry.start
