@@ -1,4 +1,8 @@
 require 'pry'
+require 'nokogiri'
+require 'open-uri'
+
+require './lib/pet_friendly'
 
 class Scraper
   
@@ -25,3 +29,5 @@ class Scraper
   
   
 end
+
+Scraper.new.get_category
