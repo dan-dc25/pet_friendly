@@ -9,8 +9,6 @@ class Category
   @@all =[]
   
   def initialize(name)
-    @name = name
-    @places = []
     @@all << self
   end
   
@@ -20,6 +18,7 @@ class Category
   
   def self.check_for_category(category_name)
     self.all.detect { |cat| cat.name == category_name }
+  
   end
   
 end
