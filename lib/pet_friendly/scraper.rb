@@ -1,6 +1,6 @@
 require 'pry'
-#require 'nokogiri'
-#require 'open-uri'
+require 'nokogiri'
+require 'open-uri'
 
 require './lib/pet_friendly'
 
@@ -14,11 +14,14 @@ class Scraper
   
   def get_page
     page = Nokogiri::HTML(open("https://bringfido.com"))
-    page.css('.header-link').each do |category|
-      category_name = category.css("a").text
-      new_category = Category.new(category_name)
-    #binding.pry 
-    end
+    categories = self.new
+    category_name = page.css("span").first.text
+    #page.css('.header-link').each do |category|
+     # category_name = category.css("a").text
+      #new_category = Category.new(category_name)
+    binding.pry 
+    categories
+   # end
   end 
   
   def get_category
@@ -32,4 +35,4 @@ class Scraper
   
 end
 
-#Scraper.new.get_category
+Scraper.new.get_category

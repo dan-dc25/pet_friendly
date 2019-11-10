@@ -1,4 +1,6 @@
 require 'pry'
+require 'nokogiri'
+require 'open-uri'
 require './lib/pet_friendly'
 
 class Category
@@ -6,19 +8,28 @@ class Category
   attr_reader :name
   attr_accessor :categories, :location
   
-  @@all =[]
+  @@categories =[]
   
-  def initialize(name)
-    @@all << self
+  def self.list_categories
+    self.get_categories
   end
   
-  def self.all
-    @@all
+   def self.get_categories
+    doc = Nokogiri::HTML(open("https://bringfido.com"))
+    #categories = self.new
+    category_name = doc.css("span").first.text
+    
+    category_name.each_with_index{|c| }
+      categories << self.get_categories
+      puts categories
+    end
   end
-  
-  def self.check_for_category(category_name)
-    self.all.detect { |cat| cat.name == category_name }
-  
-  end
+    #page.css('.header-link').each do |category|
+     # category_name = category.css("a").text
+      #new_category = Category.new(category_name)
+    #binding.pry 
+    categories
+   # end
+  #end 
   
 end
